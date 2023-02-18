@@ -725,6 +725,7 @@ class ChatConsumer(WebsocketConsumer):
         text_data_json = json.loads(text_data)
         message_type = text_data_json['type']
 
+        # fixme: uncomment this and remove line 14
         # raw_image = text_data_json['data']['img']
         # raw_image = base64.b64decode(raw_image)
 
