@@ -16,7 +16,6 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
@@ -26,13 +25,13 @@ SECRET_KEY = "django-insecure-598jv2*q+s4$rq3erkbei=9hz3%ozlecn$16zt=*0d-4#9+taw
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['gold-tv-server.boost-pop.com','127.0.0.1','office-testing.boost-pop.com',]
+ALLOWED_HOSTS = ['gold-tv-server.boost-pop.com', '127.0.0.1', 'office-testing.boost-pop.com', ]
 
 ASGI_APPLICATION = 'server.asgi.application'
 
 CHANNEL_LAYERS = {
-    'default':{
-        'BACKEND':'channels.layers.InMemoryChannelLayer'
+    'default': {
+        'BACKEND': 'channels.layers.InMemoryChannelLayer'
     }
 }
 # CHANNEL_LAYERS = {
@@ -49,7 +48,7 @@ CHANNEL_LAYERS = {
 # Application definition
 
 INSTALLED_APPS = [
-    "daphne", # for channels
+    # for channels
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -58,11 +57,13 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # 3rd party apps
     'rest_framework',
-    
+
+    # "daphne",  # for channels
+    "channels",
     # my apps
     'tv',
     'pi',
-    
+
 ]
 
 MIDDLEWARE = [
@@ -80,7 +81,7 @@ ROOT_URLCONF = "server.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        'DIRS': [os.path.join(BASE_DIR, 'static_cdn', 'templates'),],
+        'DIRS': [os.path.join(BASE_DIR, 'static_cdn', 'templates'), ],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -95,7 +96,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "server.wsgi.application"
 
-
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
@@ -106,7 +106,6 @@ DATABASES = {
     }
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
@@ -114,11 +113,10 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
     },
-    {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",},
-    {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",},
-    {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",},
+    {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator", },
+    {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator", },
+    {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator", },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
@@ -130,7 +128,6 @@ TIME_ZONE = 'Asia/Jerusalem'
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
@@ -149,7 +146,8 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(STATIC_ROOT, 'media_root/')
 
-LANGUAGE_CODE = 'he'
+# LANGUAGE_CODE = 'he'
+LANGUAGE_CODE = 'en-us'
 
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
