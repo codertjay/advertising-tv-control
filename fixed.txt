@@ -1,0 +1,12 @@
+I added Blank and null on the Image field
+I Created Serializer to check what is going on
+I added init for the websocketconumer
+I return the serializer to know whats going on
+
+
+# Fix:
+The django-channels has issue running server in asgi i would advice you use 3.04 for the version
+I modify my settings  in line 61 when i changed my django channels version
+    # "daphne",  # for channels
+    "channels",
+
